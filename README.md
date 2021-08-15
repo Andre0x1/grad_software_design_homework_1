@@ -34,3 +34,24 @@ The development will happen in 4 phases, A.K.A `Sprints`, as follows:
   - To be decided
 - Sprint 4
   - To be decided
+
+## User Stories (PT-BR)
+
+- Como aluno eu posso,
+  - realizar login no sistema
+  - acessar o sistema de matrícula durante o período válido
+  - matricular em até 4 disciplinas obrigatórias
+  - matricular em até 2 disciplinas optativas
+  - cancelar matrículas efetuadas
+- Como funcionario (secretaria) eu posso,
+  - realizar login no sistema
+  - cadastrar novas disciplinas
+  - cadastrar professores
+  - cadastrar alunos
+- Como professor eu posso,
+  - realizar login no sistema
+  - listar os alunos matriculados em uma disciplina que eu ministro
+- Como sistema de matriculas eu posso,
+  - notificar sistema de cobranças a respeito dos alunos matriculados em uma disciplina
+- Como sistema de cobrança eu posso,
+  - enviar cobrança para alunos matriculados em uma disciplina
