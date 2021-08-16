@@ -29,7 +29,7 @@ The development will happen in 4 phases, A.K.A `Sprints`, as follows:
 - Sprint 1
   - Analysis Model: User Case Diagram & User Stories
 - Sprint 2
-  - To be decided
+  - Structural Project: Class Diagram & Java Project having the initial classes
 - Sprint 3
   - To be decided
 - Sprint 4
