@@ -1,9 +1,9 @@
 public class Aluno  extends  Usuario {
 
-public double debitos;
+    public double debitos;
 
-public  void fazerLogin(){ }
-public  void fazerLogout(){ }
+    public  void fazerLogin(){ }
+    public  void fazerLogout(){ }
 
     public double getDebitos() {
         return debitos;
@@ -11,6 +11,11 @@ public  void fazerLogout(){ }
 
     public void setDebitos(double debitos) {
         this.debitos = debitos;
+    }
+
+    @Override
+    public String toString() {
+        return  "Aluno [login=" +  login + "senha="+senha+"debito=" + debitos + "]";
     }
 
 
@@ -25,4 +30,11 @@ public  void fazerLogout(){ }
         this.senha = senha;
         this.debitos = 0;
     }
+
+    public Aluno (String [] repo){
+        this.login = repo[0];
+        this.senha = repo[1];
+        this.debitos = Double.parseDouble(repo[2]);
+    }
+
 }
