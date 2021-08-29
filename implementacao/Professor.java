@@ -8,4 +8,13 @@ public class Professor extends Usuario{
         this.login = login;
         this.senha = senha;
     }
+
+    public Professor (String [] repo){
+        this.login = repo[0];
+        this.senha = repo[1];
+    }
+
+    public Professor (String line){
+
+    }
 }

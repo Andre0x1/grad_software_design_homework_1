@@ -1,22 +1,23 @@
-import sun.util.resources.cldr.chr.CalendarData_chr_US;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlunoRepositorio extends BaseRepositorio {
+public class ProfessorRepositorio extends BaseRepositorio {
 
-    private Aluno Base;
+
+    private Professor Base;
 
     public void adicionarObjeto(List<?> element) {
 
-        Base = (Aluno) element.get(0);
+        Base = (Professor) element.get(0);
 
         try {
-            FileWriter myWriter = new FileWriter("Alunos.csv",true);
+            FileWriter myWriter = new FileWriter("Professor.csv", true);
             myWriter.write(Base.getLogin() + ";");
-            myWriter.write(Base.getSenha() + ";");
-            myWriter.write(String.valueOf(Base.getDebitos()) + "\n");
+            myWriter.write(Base.getSenha() + "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
@@ -25,19 +26,19 @@ public class AlunoRepositorio extends BaseRepositorio {
         }
     }
 
-    public List<Aluno> recuperarObjeto() {
+    public List<Professor> recuperarObjeto() {
 
-        List<Aluno> alunos = new ArrayList<>();
+        List<Professor> Professores = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Alunos.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("Professor.csv"));
             String line = br.readLine();
 
             while (line != null) {
                 String[] attributes = line.split(";");
 
-                Aluno lista = new Aluno(attributes);
-                alunos.add(lista);
+                Professor lista = new Professor(attributes);
+                Professores.add(lista);
 
                 line = br.readLine();
             }
@@ -47,15 +48,15 @@ public class AlunoRepositorio extends BaseRepositorio {
             e.printStackTrace();
         }
 
-        return alunos;
+        return Professores;
     }
 
     public void encontrarObjeto(String id) {
 
-        List<Aluno> alunos = new ArrayList<>();
-        alunos = this.recuperarObjeto();
+        List<Professor> Professores = new ArrayList<>();
+        Professores = this.recuperarObjeto();
 
-        System.out.println("Aluno encontradao " + alunos.get(Integer.parseInt(id)-1));
+        System.out.println("Professor encontrado " + Professores.get(Integer.parseInt(id) - 1));
 
     }
 
@@ -67,3 +68,5 @@ public class AlunoRepositorio extends BaseRepositorio {
 
     }
 }
+
+

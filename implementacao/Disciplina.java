@@ -64,4 +64,11 @@ public class Disciplina {
         this.professorAtual = null;
         this.preco = preco;
     }
+
+    public  Disciplina (String [] repo){
+        this.nome = repo[0];
+        this.Tipo = repo[1];
+        this.professorAtual = new Professor(repo[2]);
+        this.preco = Double.parseDouble(repo[3]);
+    }
 }

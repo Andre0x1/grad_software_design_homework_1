@@ -1,4 +1,4 @@
-public abstract class Usuario implements Autentificavel
+public abstract class Usuario extends Object  implements Autentificavel
 {
     public String login;
     public String senha;
