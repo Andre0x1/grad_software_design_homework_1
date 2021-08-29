@@ -16,6 +16,7 @@ public class ProfessorRepositorio extends BaseRepositorio {
 
         try {
             FileWriter myWriter = new FileWriter("Professor.csv", true);
+            myWriter.write(String.valueOf(this.getId("Professor.csv")+1)+ ";");
             myWriter.write(Base.getLogin() + ";");
             myWriter.write(Base.getSenha() + "\n");
             myWriter.close();

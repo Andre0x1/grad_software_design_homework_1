@@ -10,6 +10,7 @@ public class AppAluno {
 
         List<Aluno> alunos = new ArrayList<>();
         AlunoRepositorio X = new AlunoRepositorio();
+        System.out.println(X.getId("Alunos.csv"));
         alunos.add(new Aluno("89","123",0));
         X.adicionarObjeto(alunos);
         alunos.clear();

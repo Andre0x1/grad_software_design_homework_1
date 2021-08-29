@@ -14,6 +14,7 @@ public class AlunoRepositorio extends BaseRepositorio {
 
         try {
             FileWriter myWriter = new FileWriter("Alunos.csv",true);
+            myWriter.write(String.valueOf(this.getId("Alunos.csv")+1)+ ";");
             myWriter.write(Base.getLogin() + ";");
             myWriter.write(Base.getSenha() + ";");
             myWriter.write(String.valueOf(Base.getDebitos()) + "\n");

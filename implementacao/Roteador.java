@@ -17,13 +17,16 @@ public class Roteador {
 
     public void logar(String login,String senha){
 
+
     }
 
     public void deslogar(){
+        this.usuario = null;
 
     }
 
-    public void run(){
+    public void run(AlunoRepositorio Aluno,ProfessorRepositorio Professor,SecretariaRepositorio Secretarias){
+
 
     }
 

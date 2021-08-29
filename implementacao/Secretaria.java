@@ -14,8 +14,8 @@ public class Secretaria extends Usuario{
         }
 
         public  Secretaria (String [] repo){
-                this.login = repo[0];
-                this.senha = repo[1];
+                this.login = repo[1];
+                this.senha = repo[2];
         }
 
 }

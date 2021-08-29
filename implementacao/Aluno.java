@@ -32,9 +32,18 @@ public class Aluno  extends  Usuario {
     }
 
     public Aluno (String [] repo){
-        this.login = repo[0];
-        this.senha = repo[1];
-        this.debitos = Double.parseDouble(repo[2]);
+        this.login = repo[1];
+        this.senha = repo[2];
+        this.debitos = Double.parseDouble(repo[3]);
+    }
+
+    public Aluno (String line){
+        String[] attributes = line.split(",");
+
+        this.login = attributes[1];
+        this.senha = attributes[2];
+        this.debitos = Double.parseDouble(attributes[3]);
+
     }
 
 }

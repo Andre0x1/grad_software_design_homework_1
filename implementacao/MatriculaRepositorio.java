@@ -5,20 +5,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecretariaRepositorio extends BaseRepositorio {
+public class MatriculaRepositorio extends BaseRepositorio {
 
 
-    private Secretaria Base;
+    private Matricula Base;
 
     public void adicionarObjeto(List<?> element) {
 
-        Base = (Secretaria) element.get(0);
+        Base = (Matricula) element.get(0);
 
         try {
-            FileWriter myWriter = new FileWriter("Secretaria.csv", true);
-            myWriter.write(String.valueOf(this.getId("Secretaria.csv")+1)+ ";");
-            myWriter.write(Base.getLogin() + ";");
-            myWriter.write(Base.getSenha() + "\n");
+            FileWriter myWriter = new FileWriter("Matricula.csv", true);
+            myWriter.write(String.valueOf(this.getId("Matricula.csv")+1)+ ";");
+            myWriter.write(Base.getAluno().toString()+ ";");
+            myWriter.write(Base.getDisciplina().toString() + "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
@@ -27,19 +27,19 @@ public class SecretariaRepositorio extends BaseRepositorio {
         }
     }
 
-    public List<Secretaria> recuperarObjeto() {
+    public List<Matricula> recuperarObjeto() {
 
-        List<Secretaria> Secretarias = new ArrayList<>();
+        List<Matricula> Matriculas = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Secretaria.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("Matricula.csv"));
             String line = br.readLine();
 
             while (line != null) {
                 String[] attributes = line.split(";");
 
-                Secretaria lista = new Secretaria(attributes);
-                Secretarias.add(lista);
+                Matricula lista = new Matricula(attributes);
+                Matriculas.add(lista);
 
                 line = br.readLine();
             }
@@ -49,15 +49,15 @@ public class SecretariaRepositorio extends BaseRepositorio {
             e.printStackTrace();
         }
 
-        return Secretarias;
+        return Matriculas;
     }
 
     public void encontrarObjeto(String id) {
 
-        List<Secretaria> Secretarias = new ArrayList<>();
-        Secretarias = this.recuperarObjeto();
+        List<Matricula> Matriculas = new ArrayList<>();
+        Matriculas = this.recuperarObjeto();
 
-        System.out.println("Secretaria encontrado " + Secretarias.get(Integer.parseInt(id) - 1));
+        System.out.println("Matricula encontrado " + Matriculas.get(Integer.parseInt(id) - 1));
 
     }
 
