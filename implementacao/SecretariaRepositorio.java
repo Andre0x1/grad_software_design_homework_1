@@ -61,6 +61,33 @@ public class SecretariaRepositorio extends BaseRepositorio {
 
     }
 
+    public boolean exist(Usuario user) {
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("Secretaria.csv"));
+            List<Secretaria> secretarias = new ArrayList<>();
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] attributes = line.split(";");
+
+                Secretaria lista = new Secretaria(attributes);
+                secretarias.add(lista);
+                line = br.readLine();
+
+            }
+            for (Secretaria ex : secretarias){
+                if (user.getLogin().equals(ex.getLogin()) && user.getSenha().equals(ex.getSenha())){
+                    return  true;
+                }
+            }
+        }catch (IOException e) {
+            System.out.println("Base de Dados de Professor Vazia");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public void carregarCsv() {
 
     }

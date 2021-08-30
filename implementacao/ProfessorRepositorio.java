@@ -61,6 +61,34 @@ public class ProfessorRepositorio extends BaseRepositorio {
 
     }
 
+    public boolean exist(Usuario user) {
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("Professor.csv"));
+            List<Professor> professores = new ArrayList<>();
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] attributes = line.split(";");
+
+                Professor lista = new Professor(attributes);
+                professores.add(lista);
+                line = br.readLine();
+
+            }
+            for (Professor ex : professores){
+                if (user.getLogin().equals(ex.getLogin()) && user.getSenha().equals(ex.getSenha())){
+                    return  true;
+                }
+            }
+        }catch (IOException e) {
+            System.out.println("Base de Dados de Professor Vazia");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
     public void carregarCsv() {
 
     }

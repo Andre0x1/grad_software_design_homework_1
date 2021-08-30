@@ -60,6 +60,33 @@ public class AlunoRepositorio extends BaseRepositorio {
 
     }
 
+    public boolean exist(Usuario user) {
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("Alunos.csv"));
+            List<Aluno> alunos = new ArrayList<>();
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] attributes = line.split(";");
+
+                Aluno lista = new Aluno(attributes);
+                alunos.add(lista);
+                line = br.readLine();
+
+            }
+            for (Aluno ex : alunos){
+                if (user.getLogin().equals(ex.getLogin()) && user.getSenha().equals(ex.getSenha())){
+                    return  true;
+                }
+            }
+        }catch (IOException e) {
+                System.out.println("Base de Dados de Alunos Vazia");
+                e.printStackTrace();
+            }
+        return false;
+    }
+
     public void carregarCsv() {
 
     }

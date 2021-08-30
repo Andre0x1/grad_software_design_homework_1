@@ -20,10 +20,16 @@ public abstract class Usuario extends Object  implements Autentificavel
         this.senha = senha;
     }
 
+    public Usuario(){
+
+    }
+
     @Override
     public abstract void fazerLogin();
 
     @Override
     public abstract void fazerLogout();
+
+
 
 }
