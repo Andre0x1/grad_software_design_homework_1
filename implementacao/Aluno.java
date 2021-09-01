@@ -40,9 +40,9 @@ public class Aluno  extends  Usuario {
     public Aluno (String line){
         String[] attributes = line.split(",");
 
-        this.login = attributes[1];
-        this.senha = attributes[2];
-        this.debitos = Double.parseDouble(attributes[3]);
+        this.login = attributes[0];
+        this.senha = attributes[1];
+        this.debitos = 0;
 
     }
 

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class AlunoView extends BaseView{
 
     @Override
-    public void show() {
+    public String show() {
         Scanner in = new Scanner(System.in);
 
         System.out.println("!!!BEM VINDO ALUNO!!!!!");
@@ -11,5 +11,6 @@ public class AlunoView extends BaseView{
         System.out.println("1) Cadastrar Disciplina" + "\n");
         System.out.println("2) Fazer logout" + "\n");
         String op = in.nextLine();
+        return op;
     }
 }

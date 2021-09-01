@@ -5,5 +5,5 @@ public abstract class BaseView {
 
     }
 
-    public abstract void show();
+    public abstract String show();
 }

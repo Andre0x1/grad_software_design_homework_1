@@ -49,7 +49,6 @@ public class Roteador{
 
         exibirMenu();
 
-
             if (Aluno.exist(usuario)) {
                 AlunoView AV = new AlunoView();
                 AV.show();
@@ -59,11 +58,27 @@ public class Roteador{
                     PV.show();
                 }else{
                     if(Secretaria.exist(usuario)){
+                        Secretaria Sec = new Secretaria (usuario.getLogin(),usuario.getSenha());
                         SecretariaView SV = new SecretariaView();
-                        SV.show();
+                        String op = SV.show();
+                        do {
+                            switch (op) {
+                                case "1":
+                                    String resp = SV.resCadastroUsuario();
+                                    if (!resp.equals("4")) {
+                                        String data = SV.criarCadastroUsuario();
+                                        Sec.cadastrarUsuario(data, resp);
+                                    }
+                                    break;
+                                case "2":
+                                    break;
+                                default:
+                                    System.out.println("Opção invalida");
+                            }
+                            op = SV.show();
+                        }while(!op.equals("3"))  ;
                     }
                 }
             }
-
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 public class AppAluno {
     public static void main(String[] args) {
         Roteador application = new Roteador();
-        AlunoRepositorio AR =new AlunoRepositorio();
+        AlunoRepositorio AR = new AlunoRepositorio();
         ProfessorRepositorio PR = new ProfessorRepositorio();
         SecretariaRepositorio SR = new SecretariaRepositorio();
 

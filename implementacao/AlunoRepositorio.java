@@ -1,4 +1,4 @@
-import sun.util.resources.cldr.chr.CalendarData_chr_US;
+
 
 import java.io.*;
 import java.util.ArrayList;
@@ -7,6 +7,10 @@ import java.util.List;
 public class AlunoRepositorio extends BaseRepositorio {
 
     private Aluno Base;
+
+     public AlunoRepositorio(){
+         this.carregarCsv();
+     }
 
     public void adicionarObjeto(List<?> element) {
 
@@ -88,7 +92,15 @@ public class AlunoRepositorio extends BaseRepositorio {
     }
 
     public void carregarCsv() {
-
+        File f = new File("Alunos.csv");
+                if(!f.exists()){
+                    try {
+                        FileWriter myWriter = new FileWriter("Alunos.csv",true);
+                    } catch (IOException e) {
+                        System.out.println("An error occurred.");
+                        e.printStackTrace();
+                    }
+                }
     }
 
     public void salvarCsv() {
