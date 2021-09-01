@@ -8,4 +8,22 @@ public class Professor extends Usuario{
         this.login = login;
         this.senha = senha;
     }
+
+    public Professor (String [] repo){
+        this.login = repo[1];
+        this.senha = repo[2];
+    }
+
+    public Professor (String line){
+        String[] attributes = line.split(",");
+
+        this.login = attributes[0];
+        this.senha = attributes[1];
+
+    }
+
+    @Override
+    public String toString() {
+        return(String.valueOf(login+","+senha));
+    }
 }
