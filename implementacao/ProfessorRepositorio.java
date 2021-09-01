@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +6,10 @@ public class ProfessorRepositorio extends BaseRepositorio {
 
 
     private Professor Base;
+
+    public ProfessorRepositorio(){
+        this.carregarCsv();
+    }
 
     public void adicionarObjeto(List<?> element) {
 
@@ -90,6 +91,15 @@ public class ProfessorRepositorio extends BaseRepositorio {
 
 
     public void carregarCsv() {
+        File f = new File("Professor.csv");
+        if(!f.exists()){
+            try {
+                FileWriter myWriter = new FileWriter("Professor.csv",true);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
 
     }
 

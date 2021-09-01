@@ -17,8 +17,8 @@ public class Professor extends Usuario{
     public Professor (String line){
         String[] attributes = line.split(",");
 
-        this.login = attributes[1];
-        this.senha = attributes[2];
+        this.login = attributes[0];
+        this.senha = attributes[1];
 
     }
 
