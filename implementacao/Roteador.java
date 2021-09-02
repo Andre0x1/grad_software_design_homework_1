@@ -58,7 +58,7 @@ public class Roteador{
                     PV.show();
                 }else{
                     if(Secretaria.exist(usuario)){
-                        Secretaria Sec = new Secretaria (usuario.getLogin(),usuario.getSenha());
+                        Secretaria Sec = new Secretaria (usuario.getLogin(),usuario.getSenha(),usuario.getNome());
                         SecretariaView SV = new SecretariaView();
                         String op = SV.show();
                         do {
@@ -71,6 +71,8 @@ public class Roteador{
                                     }
                                     break;
                                 case "2":
+                                    String data = SV.resCadastroUsuario();
+                                    Sec.cadastrarDisciplina(data);
                                     break;
                                 default:
                                     System.out.println("Opção invalida");

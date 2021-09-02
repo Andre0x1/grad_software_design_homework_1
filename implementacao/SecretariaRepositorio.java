@@ -20,7 +20,8 @@ public class SecretariaRepositorio extends BaseRepositorio {
             FileWriter myWriter = new FileWriter("Secretaria.csv", true);
             myWriter.write(String.valueOf(this.getId("Secretaria.csv")+1)+ ";");
             myWriter.write(Base.getLogin() + ";");
-            myWriter.write(Base.getSenha() + "\n");
+            myWriter.write(Base.getSenha() + ";");
+            myWriter.write(Base.getNome() + "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
@@ -98,7 +99,8 @@ public class SecretariaRepositorio extends BaseRepositorio {
                 FileWriter myWriter = new FileWriter("Secretaria.csv",true);
                 myWriter.write(String.valueOf(this.getId("Secretaria.csv")+1)+ ";");
                 myWriter.write(Base.getLogin() + ";");
-                myWriter.write(Base.getSenha() + "\n");
+                myWriter.write(Base.getSenha() + ";");
+                myWriter.write(Base.getNome() + "\n");
                 myWriter.close();
             } catch (IOException e) {
                 System.out.println("An error occurred.");

@@ -4,6 +4,15 @@ public class Disciplina {
     public String Tipo;
     public Professor professorAtual;
     public double preco;
+    public int limiteAlunos;
+
+    public int getLimiteAlunos() {
+        return limiteAlunos;
+    }
+
+    public void setLimiteAlunos(int limiteAlunos) {
+        this.limiteAlunos = limiteAlunos;
+    }
 
     public String getNome() {
         return nome;
@@ -47,14 +56,16 @@ public class Disciplina {
         this.Tipo = "PADRAO";
         this.professorAtual = null;
         this.preco = 0;
+        this.limiteAlunos = 30;
     }
 
-    public Disciplina (String nome,String tipo,Professor professor,double preco){
+    public Disciplina (String nome,String tipo,Professor professor,double preco,int limite){
 
         this.nome = nome;
         this.Tipo = tipo;
         this.professorAtual = professor;
         this.preco = preco;
+        this.limiteAlunos = limite;
     }
 
     public Disciplina (String nome,String tipo,double preco){
@@ -63,6 +74,7 @@ public class Disciplina {
         this.Tipo = tipo;
         this.professorAtual = null;
         this.preco = preco;
+        this.limiteAlunos = 30;
     }
 
     public  Disciplina (String [] repo){
@@ -70,6 +82,7 @@ public class Disciplina {
         this.Tipo = repo[1];
         this.professorAtual = new Professor(repo[2]);
         this.preco = Double.parseDouble(repo[3]);
+        this.limiteAlunos = Integer.parseInt(repo[4]);
     }
 
     public Disciplina (String line){
@@ -79,6 +92,7 @@ public class Disciplina {
         this.Tipo = attributes[1];
         this.professorAtual = new Professor(attributes[2]);
         this.preco = Double.parseDouble(attributes[3]);
+        this.limiteAlunos = Integer.parseInt(attributes[4]);
 
     }
 

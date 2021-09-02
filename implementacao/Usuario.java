@@ -2,7 +2,15 @@ public abstract class Usuario extends Object  implements Autentificavel
 {
     public String login;
     public String senha;
+    public String nome;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getLogin() {
         return login;
