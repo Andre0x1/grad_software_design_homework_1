@@ -5,20 +5,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatriculaRepositorio extends BaseRepositorio {
+public class CursoRepositorio extends BaseRepositorio {
 
-
-    private Matricula Base;
+    private Curso Base;
 
     public void adicionarObjeto(List<?> element) {
 
-        Base = (Matricula) element.get(0);
+        Base = (Curso) element.get(0);
 
         try {
-            FileWriter myWriter = new FileWriter("Matricula.csv", true);
-            myWriter.write(String.valueOf(this.getId("Matricula.csv")+1)+ ";");
-            myWriter.write(Base.getAluno().getNome()+ ";");
-            myWriter.write(Base.getDisciplina().getNome()+ "\n");
+            FileWriter myWriter = new FileWriter("Curso.csv", true);
+            myWriter.write(String.valueOf(this.getId("Curso.csv") + 1) + ";");
+            myWriter.write(Base.getDisc().toString() + ";");
+            myWriter.write(Base.getNome() + "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
@@ -27,19 +26,19 @@ public class MatriculaRepositorio extends BaseRepositorio {
         }
     }
 
-    public List<Matricula> recuperarObjeto() {
+    public List<Curso> recuperarObjeto() {
 
-        List<Matricula> Matriculas = new ArrayList<>();
+        List<Curso> Cursos = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Matricula.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("Curso.csv"));
             String line = br.readLine();
 
             while (line != null) {
                 String[] attributes = line.split(";");
 
-                Matricula lista = new Matricula(attributes);
-                Matriculas.add(lista);
+                Curso lista = new Curso(attributes);
+                Cursos.add(lista);
 
                 line = br.readLine();
             }
@@ -49,16 +48,13 @@ public class MatriculaRepositorio extends BaseRepositorio {
             e.printStackTrace();
         }
 
-        return Matriculas;
+        return Cursos;
     }
 
     public String encontrarObjeto(String id) {
-
-        List<Matricula> Matriculas = new ArrayList<>();
-        Matriculas = this.recuperarObjeto();
-
-       return Matriculas.get(Integer.parseInt(id) - 1).toString();
-
+        List<Curso> Cursos = new ArrayList<>();
+        Cursos = this.recuperarObjeto();
+        return Cursos.get(Integer.parseInt(id) - 1).toString();
     }
 
     public void carregarCsv() {
@@ -68,4 +64,6 @@ public class MatriculaRepositorio extends BaseRepositorio {
     public void salvarCsv() {
 
     }
+
+
 }

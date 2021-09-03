@@ -54,12 +54,12 @@ public class ProfessorRepositorio extends BaseRepositorio {
         return Professores;
     }
 
-    public void encontrarObjeto(String id) {
+    public String encontrarObjeto(String id) {
 
         List<Professor> Professores = new ArrayList<>();
         Professores = this.recuperarObjeto();
 
-        System.out.println("Professor encontrado " + Professores.get(Integer.parseInt(id) - 1));
+       return(Professores.get(Integer.parseInt(id) - 1).toString());
 
     }
 

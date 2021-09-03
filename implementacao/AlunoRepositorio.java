@@ -56,12 +56,12 @@ public class AlunoRepositorio extends BaseRepositorio {
         return alunos;
     }
 
-    public void encontrarObjeto(String id) {
+    public String encontrarObjeto(String id) {
 
         List<Aluno> alunos = new ArrayList<>();
         alunos = this.recuperarObjeto();
 
-        System.out.println("Aluno encontrado " + alunos.get(Integer.parseInt(id)-1));
+        return alunos.get(Integer.parseInt(id)-1).toString();
 
     }
 

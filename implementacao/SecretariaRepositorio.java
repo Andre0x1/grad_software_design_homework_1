@@ -55,12 +55,12 @@ public class SecretariaRepositorio extends BaseRepositorio {
         return Secretarias;
     }
 
-    public void encontrarObjeto(String id) {
+    public String encontrarObjeto(String id) {
 
         List<Secretaria> Secretarias = new ArrayList<>();
         Secretarias = this.recuperarObjeto();
 
-        System.out.println("Secretaria encontrado " + Secretarias.get(Integer.parseInt(id) - 1));
+        return Secretarias.get(Integer.parseInt(id) - 1).toString();
 
     }
 

@@ -71,7 +71,7 @@ public class Roteador{
                                     }
                                     break;
                                 case "2":
-                                    String data = SV.resCadastroUsuario();
+                                    String data = SV.criarCadastroDisciplina();
                                     Sec.cadastrarDisciplina(data);
                                     break;
                                 default:

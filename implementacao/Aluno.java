@@ -15,7 +15,8 @@ public class Aluno  extends  Usuario {
 
     @Override
     public String toString() {
-        return  "Aluno [login=" +  login + "senha="+senha+"debito=" + debitos + "]";
+
+        return  login + ",="+senha+",=" + debitos;
     }
 
 

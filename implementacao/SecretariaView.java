@@ -52,18 +52,20 @@ public class SecretariaView extends BaseView{
     public String criarCadastroDisciplina() {
 
         Scanner in = new Scanner(System.in);
+        ProfessorRepositorio PR = new ProfessorRepositorio();
+
         String data = "";
         System.out.println("Digite o nome da disciplina: ");
         String nome = in.nextLine();
         System.out.println("Digite o tipo da disciplina: ");
         String tipo = in.nextLine();
         System.out.println("digite o login do professor atual da disciplina");
-        String idProf = in.nextLine();
+        String Prof =  PR.encontrarObjeto(in.nextLine());
         System.out.println("digite o preco  da disciplina");
         String preco = in.nextLine();
         System.out.println("digite o o limite de alunos da disciplina");
         String limite = in.nextLine();
-        data = nome + "," + tipo + "," + idProf + "," + preco + "," + limite;
+        data = nome + "," + tipo + "," + Prof + "," + preco + "," + limite;
 
         return data;
     }
