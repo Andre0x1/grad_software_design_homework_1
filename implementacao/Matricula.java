@@ -22,4 +22,11 @@ public class Matricula {
         this.aluno = aluno;
         this.disciplina = disciplina;
     }
+
+
+    public Matricula (String [] repo){
+        this.aluno = new Aluno(repo[0]);
+        this.disciplina = new Disciplina(repo[1]);
+    }
+
 }

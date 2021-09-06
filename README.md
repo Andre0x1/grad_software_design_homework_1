@@ -31,7 +31,7 @@ The development will happen in 4 phases, A.K.A `Sprints`, as follows:
 - Sprint 2
   - Structural Project: Class Diagram & Java Project having the initial classes
 - Sprint 3
-  - To be decided
+  - Update Project: Class Diagrama & Implementation code
 - Sprint 4
   - To be decided
 

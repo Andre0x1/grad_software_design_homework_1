@@ -64,4 +64,26 @@ public class Disciplina {
         this.professorAtual = null;
         this.preco = preco;
     }
+
+    public  Disciplina (String [] repo){
+        this.nome = repo[0];
+        this.Tipo = repo[1];
+        this.professorAtual = new Professor(repo[2]);
+        this.preco = Double.parseDouble(repo[3]);
+    }
+
+    public Disciplina (String line){
+        String[] attributes = line.split(",");
+
+        this.nome = attributes[0];
+        this.Tipo = attributes[1];
+        this.professorAtual = new Professor(attributes[2]);
+        this.preco = Double.parseDouble(attributes[3]);
+
+    }
+
+    @Override
+    public String toString() {
+        return(String.valueOf(nome+","+Tipo+","+professorAtual.toString()+","+preco));
+    }
 }
