@@ -29,4 +29,8 @@ public class Matricula {
         this.disciplina = new Disciplina(repo[1]);
     }
 
+    public void emitirCobranca(){
+        double aux = this.getDisciplina().getPreco();
+        this.aluno.setDebitos(this.aluno.getDebitos() + aux);
+    }
 }

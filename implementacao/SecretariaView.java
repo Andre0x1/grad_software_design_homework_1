@@ -7,11 +7,12 @@ public class SecretariaView extends BaseView{
     public String show() {
         Scanner in = new Scanner(System.in);
 
-        System.out.println("!!!BEM VINDO SECRETARIA!!!!!");
+        System.out.println("!!!BEM VINDO A SECRETARIA!!!!!");
         System.out.println("Digite a opção desejada:");
         System.out.println("1) Para cadastrar  usuario");
         System.out.println("2) Para cadastrar  disciplina");
-        System.out.println("3) Fazer logout" + "\n");
+        System.out.println("3) Para cadastrar curso");
+        System.out.println("4) Fazer logout" + "\n");
         String op = in.nextLine();
         return op;
     }
@@ -30,6 +31,9 @@ public class SecretariaView extends BaseView{
         return op;
     }
 
+
+
+
     public String criarCadastroUsuario() {
 
         Scanner in = new Scanner(System.in);
@@ -38,7 +42,46 @@ public class SecretariaView extends BaseView{
         String login = in.nextLine();
         System.out.println("Digite Senha: ");
         String senha = in.nextLine();
-        data = login + "," + senha;
+        System.out.println("Digite o nome: ");
+        String nome = in.nextLine();
+        data = login + "," + senha + "," + nome;
+
+        return data;
+    }
+
+
+    public String criarCadastroDisciplina() {
+
+        Scanner in = new Scanner(System.in);
+        ProfessorRepositorio PR = new ProfessorRepositorio();
+
+        String data = "";
+        System.out.println("Digite o nome da disciplina: ");
+        String nome = in.nextLine();
+        System.out.println("Digite o tipo da disciplina: ");
+        String tipo = in.nextLine();
+        System.out.println("digite o login do professor atual da disciplina");
+        String Prof =  PR.encontrarObjeto(in.nextLine());
+        System.out.println("digite o preco  da disciplina");
+        String preco = in.nextLine();
+        System.out.println("digite o o limite de alunos da disciplina");
+        String limite = in.nextLine();
+        data = nome + "," + tipo + "," + Prof + "," + preco + "," + limite;
+
+        return data;
+    }
+
+    public String criarCadastroCurso() {
+
+        Scanner in = new Scanner(System.in);
+        ProfessorRepositorio PR = new ProfessorRepositorio();
+
+        String data = "";
+        System.out.println("Digite o nome do curso: ");
+        String nome = in.nextLine();
+        System.out.println("Digite o id das displinas vinculadas ao curso (separadas por espaço) ");
+        String limite = in.nextLine();
+        data = nome + "," + limite;
 
         return data;
     }

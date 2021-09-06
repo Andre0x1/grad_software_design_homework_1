@@ -58,7 +58,7 @@ public class Roteador{
                     PV.show();
                 }else{
                     if(Secretaria.exist(usuario)){
-                        Secretaria Sec = new Secretaria (usuario.getLogin(),usuario.getSenha());
+                        Secretaria Sec = new Secretaria (usuario.getLogin(),usuario.getSenha(),usuario.getNome());
                         SecretariaView SV = new SecretariaView();
                         String op = SV.show();
                         do {
@@ -71,12 +71,18 @@ public class Roteador{
                                     }
                                     break;
                                 case "2":
+                                    String data = SV.criarCadastroDisciplina();
+                                    Sec.cadastrarDisciplina(data);
+                                    break;
+                                case "3":
+                                    String aux = SV.criarCadastroCurso();
+                                    Sec.cadastrarCurso(aux);
                                     break;
                                 default:
                                     System.out.println("Opção invalida");
                             }
                             op = SV.show();
-                        }while(!op.equals("3"))  ;
+                        }while(!op.equals("4"))  ;
                     }
                 }
             }

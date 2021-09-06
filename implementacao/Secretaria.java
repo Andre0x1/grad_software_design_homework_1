@@ -33,23 +33,40 @@ public class Secretaria extends Usuario{
                 }
 
         }
-        public void cadastrarDisciplina(){
+        public void cadastrarDisciplina(String data){
 
+                DisciplinaRepositorio DR= new DisciplinaRepositorio();
+                Disciplina Dis = new Disciplina(data);
+                List<Disciplina> disciplinas = new ArrayList<>();
+                disciplinas.add(Dis);
+                DR.adicionarObjeto(disciplinas);
+        }
+
+        public void cadastrarCurso(String data){
+                CursoRepositorio CR= new CursoRepositorio();
+                Curso Cur = new Curso(data);
+                List<Curso> cursos =  new ArrayList<>();
+                cursos.add(Cur);
+                CR.adicionarObjeto(cursos);
         }
 
         public Secretaria (){
                 this.login = "0";
                 this.senha = "1";
+                this.nome = "Admin";
+
         }
 
-        public Secretaria (String login,String senha){
+        public Secretaria (String login,String senha,String nome){
                 this.login = login;
                 this.senha = senha;
+                this.nome = nome;
         }
 
         public  Secretaria (String [] repo){
                 this.login = repo[1];
                 this.senha = repo[2];
+                this.nome = repo[3];
         }
 
         public Secretaria (String line){
@@ -57,6 +74,7 @@ public class Secretaria extends Usuario{
 
                 this.login = attributes[0];
                 this.senha = attributes[1];
+                this.nome = attributes[2];
 
         }
 

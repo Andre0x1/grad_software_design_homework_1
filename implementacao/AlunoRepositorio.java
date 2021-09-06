@@ -21,6 +21,7 @@ public class AlunoRepositorio extends BaseRepositorio {
             myWriter.write(String.valueOf(this.getId("Alunos.csv")+1)+ ";");
             myWriter.write(Base.getLogin() + ";");
             myWriter.write(Base.getSenha() + ";");
+            myWriter.write(Base.getNome() + ";");
             myWriter.write(String.valueOf(Base.getDebitos()) + "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
@@ -55,12 +56,12 @@ public class AlunoRepositorio extends BaseRepositorio {
         return alunos;
     }
 
-    public void encontrarObjeto(String id) {
+    public String encontrarObjeto(String id) {
 
         List<Aluno> alunos = new ArrayList<>();
         alunos = this.recuperarObjeto();
 
-        System.out.println("Aluno encontradao " + alunos.get(Integer.parseInt(id)-1));
+        return alunos.get(Integer.parseInt(id)-1).toString();
 
     }
 

@@ -16,8 +16,11 @@ public class DisciplinaRepositorio extends BaseRepositorio{
         try {
             FileWriter myWriter = new FileWriter("Disciplina.csv", true);
             myWriter.write(String.valueOf(this.getId("Disciplina.csv")+1)+ ";");
+            myWriter.write(Base.getNome() + ";");
+            myWriter.write(Base.getTipo() + ";");
             myWriter.write(Base.getProfessorAtual().toString() + ";");
-            myWriter.write(String.valueOf(Base.getPreco()) + "\n");
+            myWriter.write(String.valueOf(Base.getPreco()) + ";");
+            myWriter.write(String.valueOf(Base.getLimiteAlunos()) + "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
@@ -51,12 +54,14 @@ public class DisciplinaRepositorio extends BaseRepositorio{
         return Disciplinas;
     }
 
-    public void encontrarObjeto(String id) {
+    public String encontrarObjeto(String id) {
 
         List<Disciplina> Disciplinas = new ArrayList<>();
         Disciplinas = this.recuperarObjeto();
 
-        System.out.println("Disciplina encontrado " + Disciplinas.get(Integer.parseInt(id) - 1));
+        Disciplina D = Disciplinas.get(Integer.parseInt(id) - 1);
+
+        return D.toString();
 
     }
 

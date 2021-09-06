@@ -19,7 +19,8 @@ public class ProfessorRepositorio extends BaseRepositorio {
             FileWriter myWriter = new FileWriter("Professor.csv", true);
             myWriter.write(String.valueOf(this.getId("Professor.csv")+1)+ ";");
             myWriter.write(Base.getLogin() + ";");
-            myWriter.write(Base.getSenha() + "\n");
+            myWriter.write(Base.getSenha() + ";");
+            myWriter.write(Base.getNome() + "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
@@ -46,19 +47,19 @@ public class ProfessorRepositorio extends BaseRepositorio {
             }
 
         } catch (IOException e) {
-            System.out.println("Base de Dados de Alunos Vazia");
+            System.out.println("Base de Dados de Professores Vazia");
             e.printStackTrace();
         }
 
         return Professores;
     }
 
-    public void encontrarObjeto(String id) {
+    public String encontrarObjeto(String id) {
 
         List<Professor> Professores = new ArrayList<>();
         Professores = this.recuperarObjeto();
 
-        System.out.println("Professor encontrado " + Professores.get(Integer.parseInt(id) - 1));
+       return(Professores.get(Integer.parseInt(id) - 1).toString());
 
     }
 

@@ -17,8 +17,8 @@ public class MatriculaRepositorio extends BaseRepositorio {
         try {
             FileWriter myWriter = new FileWriter("Matricula.csv", true);
             myWriter.write(String.valueOf(this.getId("Matricula.csv")+1)+ ";");
-            myWriter.write(Base.getAluno().toString()+ ";");
-            myWriter.write(Base.getDisciplina().toString() + "\n");
+            myWriter.write(Base.getAluno().getNome()+ ";");
+            myWriter.write(Base.getDisciplina().getNome()+ "\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
@@ -52,12 +52,12 @@ public class MatriculaRepositorio extends BaseRepositorio {
         return Matriculas;
     }
 
-    public void encontrarObjeto(String id) {
+    public String encontrarObjeto(String id) {
 
         List<Matricula> Matriculas = new ArrayList<>();
         Matriculas = this.recuperarObjeto();
 
-        System.out.println("Matricula encontrado " + Matriculas.get(Integer.parseInt(id) - 1));
+       return Matriculas.get(Integer.parseInt(id) - 1).toString();
 
     }
 

@@ -16,7 +16,7 @@ public abstract class BaseRepositorio implements java.io.Serializable{
 
     public  abstract List<?> recuperarObjeto();
 
-    public abstract void encontrarObjeto(String id);
+    public abstract String encontrarObjeto(String id);
 
     public abstract void carregarCsv();
 
