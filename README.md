@@ -37,21 +37,18 @@ The development will happen in 4 phases, A.K.A `Sprints`, as follows:
 
 ## User Stories (PT-BR)
 
-- Como aluno eu posso,
-  - realizar login no sistema
-  - acessar o sistema de matrícula durante o período válido
-  - matricular em até 4 disciplinas obrigatórias
-  - matricular em até 2 disciplinas optativas
-  - cancelar matrículas efetuadas
-- Como funcionario (secretaria) eu posso,
-  - realizar login no sistema
-  - cadastrar novas disciplinas
-  - cadastrar professores
-  - cadastrar alunos
+- Como aluno eu devo ter a habilidade de,
+  - realizar login no sistema para que eu possa acessar o sistema da universidade
+  - acessar o sistema de matrícula durante o período válido para que eu possa cadastrar a disciplinas que desejo cursar
+  - matricular em até 4 disciplinas obrigatórias para atender os requisitos da universidade
+  - matricular em até 2 disciplinas optativas para atender os requisitos da universidade
+  - cancelar matrículas efetuadas para que eu possa mudar de ideia após selecionar as disciplinas
+
+- Como funcionario (secretaria) eu devo ter a habilidade de ,
+  - realizar login no sistema para que eu possa acessar o sistema da universidade
+  - cadastrar professores para que o sistema indentificar professores
+  - cadastrar alunos para que o sistema indentificar alunos
+  
 - Como professor eu posso,
-  - realizar login no sistema
+  - realizar login no sistema para que eu possa acessar o sistema da universidade
   - listar os alunos matriculados em uma disciplina que eu ministro
-- Como sistema de matriculas eu posso,
-  - notificar sistema de cobranças a respeito dos alunos matriculados em uma disciplina
-- Como sistema de cobrança eu posso,
-  - enviar cobrança para alunos matriculados em uma disciplina
