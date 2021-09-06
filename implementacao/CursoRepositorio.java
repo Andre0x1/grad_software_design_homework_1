@@ -8,16 +8,29 @@ import java.util.List;
 public class CursoRepositorio extends BaseRepositorio {
 
     private Curso Base;
+    private List<Disciplina> disc ;
 
     public void adicionarObjeto(List<?> element) {
 
         Base = (Curso) element.get(0);
+        DisciplinaRepositorio DR = new DisciplinaRepositorio();
+
+        disc = DR.recuperarObjeto();
+        String [] aux;
+
 
         try {
             FileWriter myWriter = new FileWriter("Curso.csv", true);
             myWriter.write(String.valueOf(this.getId("Curso.csv") + 1) + ";");
-            myWriter.write(Base.getDisc().toString() + ";");
-            myWriter.write(Base.getNome() + "\n");
+            myWriter.write(Base.getNome() + ";");
+            for(Disciplina D : Base.getDisc()){
+                for (int i = 0 ;i <disc.size();i++){
+                    if(D.getNome().equals(disc.get(i).getNome())){
+                        myWriter.write(String.valueOf(i+1) + ",");
+                    }
+                }
+            }
+            myWriter.write("\n");
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {

@@ -74,11 +74,15 @@ public class Roteador{
                                     String data = SV.criarCadastroDisciplina();
                                     Sec.cadastrarDisciplina(data);
                                     break;
+                                case "3":
+                                    String aux = SV.criarCadastroCurso();
+                                    Sec.cadastrarCurso(aux);
+                                    break;
                                 default:
                                     System.out.println("Opção invalida");
                             }
                             op = SV.show();
-                        }while(!op.equals("3"))  ;
+                        }while(!op.equals("4"))  ;
                     }
                 }
             }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -83,7 +84,15 @@ public class Oferta {
     }
 
     public void processaMatricula(){
+        MatriculaRepositorio MR = new MatriculaRepositorio();
+        List<Matricula> LM = new ArrayList<>();
 
+        for(Aluno al : alunos ){
+            Matricula M = new Matricula(al,disciplina);
+            M.emitirCobranca();
+            LM.add(M);
+            MR.adicionarObjeto(LM);
+        }
     }
 
 

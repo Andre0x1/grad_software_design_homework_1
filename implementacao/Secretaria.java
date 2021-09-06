@@ -42,8 +42,12 @@ public class Secretaria extends Usuario{
                 DR.adicionarObjeto(disciplinas);
         }
 
-        public void cadastrarCurso(){
-
+        public void cadastrarCurso(String data){
+                CursoRepositorio CR= new CursoRepositorio();
+                Curso Cur = new Curso(data);
+                List<Curso> cursos =  new ArrayList<>();
+                cursos.add(Cur);
+                CR.adicionarObjeto(cursos);
         }
 
         public Secretaria (){

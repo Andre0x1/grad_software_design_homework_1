@@ -1,8 +1,10 @@
+import javax.sound.midi.SysexMessage;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Curso {
 
-   public List <Disciplina> disc;
+   public List <Disciplina> disc = new ArrayList<>();
    public String nome;
 
 
@@ -35,17 +37,19 @@ public class Curso {
     public  Curso (String [] repo){
         String Disciplina = repo[1] + "," + repo[2] +  "," + repo[3]+  "," + repo[4]+  "," + repo[5];
         this.disc.add(new Disciplina(Disciplina));
-        this.nome = repo[0];
+        this.nome = repo[1];
     }
 
     public Curso (String line){
         String[] attributes = line.split(",");
-        String Disciplina = attributes[1] + "," + attributes[2] +  "," + attributes[3]+  "," + attributes[4]+  "," + attributes[5];
+
+        DisciplinaRepositorio DR = new DisciplinaRepositorio();
+        String[] discs = attributes[1].split(" ");
+
         this.nome = attributes[0];
-
+        for(String id : discs){
+            Disciplina D = new Disciplina(DR.encontrarObjeto(id));
+            this.disc.add(D);
+        }
     }
-
-
-
-
 }

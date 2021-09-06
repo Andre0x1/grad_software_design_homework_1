@@ -18,8 +18,6 @@ public class DisciplinaRepositorio extends BaseRepositorio{
             myWriter.write(String.valueOf(this.getId("Disciplina.csv")+1)+ ";");
             myWriter.write(Base.getNome() + ";");
             myWriter.write(Base.getTipo() + ";");
-
-            myWriter.write(Base.getProfessorAtual().toString() + ";");
             myWriter.write(Base.getProfessorAtual().toString() + ";");
             myWriter.write(String.valueOf(Base.getPreco()) + ";");
             myWriter.write(String.valueOf(Base.getLimiteAlunos()) + "\n");
@@ -61,7 +59,9 @@ public class DisciplinaRepositorio extends BaseRepositorio{
         List<Disciplina> Disciplinas = new ArrayList<>();
         Disciplinas = this.recuperarObjeto();
 
-        return Disciplinas.get(Integer.parseInt(id) - 1).toString();
+        Disciplina D = Disciplinas.get(Integer.parseInt(id) - 1);
+
+        return D.toString();
 
     }
 

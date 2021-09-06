@@ -78,13 +78,14 @@ public class Disciplina {
     }
 
     public  Disciplina (String [] repo){
-        String prof = repo[2] + "," + repo[3] +  "," + repo[4];
-        this.nome = repo[0];
-        this.Tipo = repo[1];
-        this.professorAtual = new Professor(prof);
-        this.preco = Double.parseDouble(repo[5]);
-        this.limiteAlunos = Integer.parseInt(repo[6]);
+
+        this.nome = repo[1];
+        this.Tipo = repo[2];
+        this.professorAtual = new Professor(repo[3]);
+        this.preco = Double.parseDouble(repo[4]);
+        this.limiteAlunos = Integer.parseInt(repo[5]);
     }
+
 
     public Disciplina (String line){
         String[] attributes = line.split(",");
@@ -99,6 +100,6 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return(String.valueOf(nome+","+Tipo+","+professorAtual.toString()+","+preco+","+limiteAlunos));
+        return(nome+","+Tipo+","+professorAtual.getLogin()+","+professorAtual.getSenha()+","+professorAtual.getNome()+","+preco+","+limiteAlunos);
     }
 }
