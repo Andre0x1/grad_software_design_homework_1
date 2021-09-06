@@ -1,3 +1,7 @@
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class SecretariaView extends BaseView{
@@ -6,13 +10,16 @@ public class SecretariaView extends BaseView{
     @Override
     public String show() {
         Scanner in = new Scanner(System.in);
-
         System.out.println("!!!BEM VINDO A SECRETARIA!!!!!");
         System.out.println("Digite a opção desejada:");
         System.out.println("1) Para cadastrar  usuario");
         System.out.println("2) Para cadastrar  disciplina");
         System.out.println("3) Para cadastrar curso");
-        System.out.println("4) Fazer logout" + "\n");
+        System.out.println("4) Para ofertar disciplna");
+        System.out.println("5) Para listar  usuarios");
+        System.out.println("6) Para listar  disciplinas");
+        System.out.println("7) Para listar cursos");
+        System.out.println("8) Fazer logout" + "\n");
         String op = in.nextLine();
         return op;
     }
@@ -73,9 +80,8 @@ public class SecretariaView extends BaseView{
 
     public String criarCadastroCurso() {
 
-        Scanner in = new Scanner(System.in);
-        ProfessorRepositorio PR = new ProfessorRepositorio();
 
+        Scanner in = new Scanner(System.in);
         String data = "";
         System.out.println("Digite o nome do curso: ");
         String nome = in.nextLine();
@@ -85,5 +91,26 @@ public class SecretariaView extends BaseView{
 
         return data;
     }
+
+    public String ofertarDisciplina() {
+
+
+        Scanner in = new Scanner(System.in);
+        String data = "";
+        System.out.println("Digite o limite dos alunos para essa disciplina: ");
+        String limite = in.nextLine();
+        System.out.println("Digite o id das displina vinculadas a oferta");
+        String idDisc = in.nextLine();
+        System.out.println("Digite o semestre da oferta");
+        String sem = in.nextLine();
+        System.out.println("Digite o inicio da oferta da oferta (dd/mm/aaaa)");
+        String dateIni = in.nextLine();
+        System.out.println("Digite o fim da oferta da oferta (dd/mm/aaaa)");
+        String dateFim = in.nextLine();
+        data = limite + "," + idDisc + "," + sem + "," + dateIni + "," + dateFim;
+
+        return data;
+    }
+
 
 }

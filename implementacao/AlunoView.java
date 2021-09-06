@@ -13,4 +13,12 @@ public class AlunoView extends BaseView{
         String op = in.nextLine();
         return op;
     }
+
+    public String entraOferta() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("1) Cadastrar  em Disciplina Disciplina" + "\n");
+        String op = in.nextLine();
+        return op;
+    }
 }

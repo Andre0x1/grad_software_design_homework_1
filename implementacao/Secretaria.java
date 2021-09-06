@@ -50,6 +50,15 @@ public class Secretaria extends Usuario{
                 CR.adicionarObjeto(cursos);
         }
 
+        public void criarOferta(String data){
+                OfertaRepositorio OR = new OfertaRepositorio();
+                Oferta offer = new Oferta(data);
+                List<Oferta> ofertas = new ArrayList<>();
+                ofertas.add(offer);
+                OR.adicionarObjeto(ofertas);
+        }
+
+
         public Secretaria (){
                 this.login = "0";
                 this.senha = "1";

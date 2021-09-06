@@ -8,7 +8,8 @@ public class ProfessorView extends BaseView{
 
         System.out.println("!!!BEM VINDO Professor!!!!!");
         System.out.println("Digite a opção desejada:");
-        System.out.println("1) Fazer logout" + "\n");
+        System.out.println("1) Listar Alunos");
+        System.out.println("2) Fazer logout" + "\n");
         String op = in.nextLine();
         return op;
     }

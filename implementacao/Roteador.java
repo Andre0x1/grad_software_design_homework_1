@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Roteador{
+public class Roteador {
 
     public Usuario usuario = new Usuario() {
         @Override
@@ -22,7 +22,7 @@ public class Roteador{
         this.usuario = usuario;
     }
 
-    public void exibirMenu(){
+    public void exibirMenu() {
 
         Scanner in = new Scanner(System.in);
 
@@ -31,37 +31,46 @@ public class Roteador{
         System.out.println("Digite Senha: ");
         String senha = in.nextLine();
 
-        logar(login,senha);
+        logar(login, senha);
 
     }
 
-    public void logar(String login,String senha){
+    public void logar(String login, String senha) {
         usuario.setLogin(login);
         usuario.setSenha(senha);
     }
 
-    public void deslogar(){
-        this.usuario = null;
+    public void deslogar() {
+        this.usuario.setLogin("null");
 
     }
 
-    public void run(AlunoRepositorio Aluno,ProfessorRepositorio Professor,SecretariaRepositorio Secretaria){
-
-        exibirMenu();
+    public void run(AlunoRepositorio Aluno, ProfessorRepositorio Professor, SecretariaRepositorio Secretaria) {
+        this.deslogar();
+        while (usuario.getLogin().equals("null")) {
+            exibirMenu();
 
             if (Aluno.exist(usuario)) {
                 AlunoView AV = new AlunoView();
-                AV.show();
+                String aop = AV.show();
+                while ((!aop.equals("2"))) {
+                    if (aop.equals("1")) {
+                        String Ad = AV.entraOferta();
+                    } else {
+                        System.out.println("Opção invalida");
+                    }
+                }
+
             } else {
                 if (Professor.exist(usuario)) {
                     ProfessorView PV = new ProfessorView();
                     PV.show();
-                }else{
-                    if(Secretaria.exist(usuario)){
-                        Secretaria Sec = new Secretaria (usuario.getLogin(),usuario.getSenha(),usuario.getNome());
+                } else {
+                    if (Secretaria.exist(usuario)) {
+                        Secretaria Sec = new Secretaria(usuario.getLogin(), usuario.getSenha(), usuario.getNome());
                         SecretariaView SV = new SecretariaView();
                         String op = SV.show();
-                        do {
+                        while ((!op.equals("8"))) {
                             switch (op) {
                                 case "1":
                                     String resp = SV.resCadastroUsuario();
@@ -78,13 +87,19 @@ public class Roteador{
                                     String aux = SV.criarCadastroCurso();
                                     Sec.cadastrarCurso(aux);
                                     break;
+                                case "4":
+                                    String offer = SV.ofertarDisciplina();
+                                    Sec.criarOferta(offer);
+                                    break;
                                 default:
                                     System.out.println("Opção invalida");
                             }
                             op = SV.show();
-                        }while(!op.equals("4"))  ;
+                        }
+                        this.deslogar();
                     }
                 }
             }
+        }
     }
 }

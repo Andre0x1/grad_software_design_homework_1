@@ -7,8 +7,6 @@ public class AppAluno {
         AlunoRepositorio AR = new AlunoRepositorio();
         ProfessorRepositorio PR = new ProfessorRepositorio();
         SecretariaRepositorio SR = new SecretariaRepositorio();
-
         application.run(AR,PR,SR);
-
     }
 }

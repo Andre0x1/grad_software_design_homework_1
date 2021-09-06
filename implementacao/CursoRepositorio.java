@@ -16,8 +16,6 @@ public class CursoRepositorio extends BaseRepositorio {
         DisciplinaRepositorio DR = new DisciplinaRepositorio();
 
         disc = DR.recuperarObjeto();
-        String [] aux;
-
 
         try {
             FileWriter myWriter = new FileWriter("Curso.csv", true);

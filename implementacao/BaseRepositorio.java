@@ -37,5 +37,4 @@ public abstract class BaseRepositorio implements java.io.Serializable{
         }
         return lines;
     }
-
 }
