@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno  extends  Usuario {
 
     public double debitos;
@@ -16,9 +19,26 @@ public class Aluno  extends  Usuario {
     @Override
     public String toString() {
 
-        return  login + ",="+senha+",=" + debitos;
+        return  login + ","+senha+"," + debitos;
     }
 
+    public void ingressarEmOferta(String var,Aluno Al){
+        OfertaRepositorio OR = new OfertaRepositorio();
+        List<Oferta> ofertas = OR.recuperarObjeto();
+        OR.carregarCsv();
+
+        for (int i = 0; i < ofertas.size(); i++) {
+            if (String.valueOf(i+1).equals(var)) {
+               ofertas.get(i).getAlunos().add(Al);
+            }
+        }
+
+        for (Oferta aux : ofertas){
+            List<Oferta> offers = new ArrayList<>();
+            offers.add(aux);
+            OR.adicionarObjeto(offers);
+        }
+    }
 
     public Aluno (String login,String senha,String nome,double debito){
         this.login = login;

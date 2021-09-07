@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,16 +53,24 @@ public class DisciplinaRepositorio extends BaseRepositorio{
 
     public String encontrarObjeto(String id) {
 
-        List<Disciplina> Disciplinas = new ArrayList<>();
-        Disciplinas = this.recuperarObjeto();
+        List<Disciplina> Disciplinas = this.recuperarObjeto();
 
-        Disciplina D = Disciplinas.get(Integer.parseInt(id) - 1);
+        Disciplina D = Disciplinas.get(Integer.parseInt(id)-1);
 
         return D.toString();
 
     }
 
     public void carregarCsv() {
+        File f = new File("Disciplina.csv");
+        if(!f.exists()){
+            try {
+                FileWriter myWriter = new FileWriter("Disciplina.csv",true);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
 
     }
 

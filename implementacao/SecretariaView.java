@@ -103,11 +103,13 @@ public class SecretariaView extends BaseView{
         String idDisc = in.nextLine();
         System.out.println("Digite o semestre da oferta");
         String sem = in.nextLine();
+        System.out.println("Digite o nome do status");
+        String status = in.nextLine();
         System.out.println("Digite o inicio da oferta da oferta (dd/mm/aaaa)");
         String dateIni = in.nextLine();
         System.out.println("Digite o fim da oferta da oferta (dd/mm/aaaa)");
         String dateFim = in.nextLine();
-        data = limite + "," + idDisc + "," + sem + "," + dateIni + "," + dateFim;
+        data = limite + "," + idDisc + "," + sem + "," + status + "," + dateIni + "," + dateFim;
 
         return data;
     }

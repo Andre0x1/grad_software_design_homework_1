@@ -17,7 +17,7 @@ public class AlunoView extends BaseView{
     public String entraOferta() {
         Scanner in = new Scanner(System.in);
 
-        System.out.println("1) Cadastrar  em Disciplina Disciplina" + "\n");
+        System.out.println("1) Digite o Id da disciplina" + "\n");
         String op = in.nextLine();
         return op;
     }

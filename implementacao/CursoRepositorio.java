@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +67,15 @@ public class CursoRepositorio extends BaseRepositorio {
 
     public void carregarCsv() {
 
+        File f = new File("Curso.csv");
+        if(!f.exists()){
+            try {
+                FileWriter myWriter = new FileWriter("Curso.csv",true);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
     }
 
     public void salvarCsv() {

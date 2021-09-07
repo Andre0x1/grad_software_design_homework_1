@@ -51,14 +51,17 @@ public class Roteador {
             exibirMenu();
 
             if (Aluno.exist(usuario)) {
+                Aluno Al = new Aluno(usuario.getLogin(), usuario.getSenha(), usuario.getNome());
                 AlunoView AV = new AlunoView();
                 String aop = AV.show();
                 while ((!aop.equals("2"))) {
                     if (aop.equals("1")) {
                         String Ad = AV.entraOferta();
+                        Al.ingressarEmOferta(Ad,Al);
                     } else {
                         System.out.println("Opção invalida");
                     }
+                    aop = AV.show();
                 }
 
             } else {

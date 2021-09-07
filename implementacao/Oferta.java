@@ -90,10 +90,10 @@ public class Oferta {
         this.minAlunos = Integer.parseInt(attributes[0]);
         this.Disciplina = new Disciplina(DR.encontrarObjeto(attributes[1]));
         this.semestre = attributes[2];
-        this.status = "ABERTA";
+        this.status = attributes[3];
         this.Alunos = new ArrayList<>();
-        this.inicioOferta = attributes[3];
-        this.fimOferta = attributes[4];
+        this.inicioOferta = attributes[4];
+        this.fimOferta = attributes[5];
 
     }
 
@@ -111,12 +111,24 @@ public class Oferta {
 
     public  Oferta (String [] repo){
         DisciplinaRepositorio DR = new DisciplinaRepositorio();
-        this.minAlunos = Integer.parseInt(repo[0]);
-        this.Disciplina = new Disciplina(DR.encontrarObjeto(repo[1]));
-        this.semestre = repo[2];
-        this.status = "ABERTA";
-        this.inicioOferta = repo[3];
-        this.fimOferta = repo[4];
+        AlunoRepositorio AR = new AlunoRepositorio();
+        String [] Disc =  repo[2].split(",");
+        String [] Als =  repo[3].split(",");
+
+        if (!Als[0].equals("")){
+            for (String s : Als) {
+                Aluno al = new Aluno(AR.encontrarObjeto(s));
+                this.Alunos.add(al);
+            }
+        }else{
+            Alunos = new ArrayList<>();
+        }
+        this.minAlunos = Integer.parseInt(repo[1]);
+        this.Disciplina = new Disciplina(DR.encontrarObjeto(Disc[0]));
+        this.semestre = repo[4];
+        this.status = repo[5];
+        this.inicioOferta = repo[6];
+        this.fimOferta = repo[7];
     }
 
     @Override

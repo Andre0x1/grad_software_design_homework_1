@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,14 +31,12 @@ public class OfertaRepositorio extends BaseRepositorio {
             if(!Base.getAlunos().isEmpty()){
                 for (Aluno A : Base.getAlunos()) {
                     for (int i = 0; i < al.size(); i++) {
-                        if (A.getNome().equals(al.get(i).getNome())) {
+                        if (A.getLogin().equals(al.get(i).getLogin())) {
                             myWriter.write(String.valueOf(i + 1) + ",");
                         }
                     }
                 }
             }
-
-
             myWriter.write(";");
             myWriter.write(Base.getSemestre() + ";");
             myWriter.write(Base.getStatus() + ";");
@@ -82,8 +77,7 @@ public class OfertaRepositorio extends BaseRepositorio {
 
     public String encontrarObjeto(String id) {
 
-        List<Oferta> Ofertas = new ArrayList<>();
-        Ofertas = this.recuperarObjeto();
+        List<Oferta> Ofertas = this.recuperarObjeto();
 
         Oferta D = Ofertas.get(Integer.parseInt(id) - 1);
 
@@ -92,7 +86,15 @@ public class OfertaRepositorio extends BaseRepositorio {
     }
 
     public void carregarCsv() {
-
+        File f = new File("Oferta.csv");
+        if(f.exists() && f.delete()){
+            try {
+                FileWriter myWriter = new FileWriter("Disciplina.csv",true);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
     }
 
     public void salvarCsv() {

@@ -8,17 +8,17 @@ public class AlunoRepositorio extends BaseRepositorio {
 
     private Aluno Base;
 
-     public AlunoRepositorio(){
-         this.carregarCsv();
-     }
+    public AlunoRepositorio() {
+        this.carregarCsv();
+    }
 
     public void adicionarObjeto(List<?> element) {
 
         Base = (Aluno) element.get(0);
 
         try {
-            FileWriter myWriter = new FileWriter("Alunos.csv",true);
-            myWriter.write(String.valueOf(this.getId("Alunos.csv")+1)+ ";");
+            FileWriter myWriter = new FileWriter("Alunos.csv", true);
+            myWriter.write(String.valueOf(this.getId("Alunos.csv") + 1) + ";");
             myWriter.write(Base.getLogin() + ";");
             myWriter.write(Base.getSenha() + ";");
             myWriter.write(Base.getNome() + ";");
@@ -61,7 +61,7 @@ public class AlunoRepositorio extends BaseRepositorio {
         List<Aluno> alunos = new ArrayList<>();
         alunos = this.recuperarObjeto();
 
-        return alunos.get(Integer.parseInt(id)-1).toString();
+        return alunos.get(Integer.parseInt(id) - 1).toString();
 
     }
 
@@ -80,29 +80,44 @@ public class AlunoRepositorio extends BaseRepositorio {
                 line = br.readLine();
 
             }
-            for (Aluno ex : alunos){
-                if (user.getLogin().equals(ex.getLogin()) && user.getSenha().equals(ex.getSenha())){
-                    return  true;
+            for (Aluno ex : alunos) {
+                if (user.getLogin().equals(ex.getLogin()) && user.getSenha().equals(ex.getSenha())) {
+                    return true;
                 }
             }
-        }catch (IOException e) {
-                System.out.println("Base de Dados de Alunos Vazia");
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            System.out.println("Base de Dados de Alunos Vazia");
+            e.printStackTrace();
+        }
         return false;
     }
 
     public void carregarCsv() {
         File f = new File("Alunos.csv");
-                if(!f.exists()){
-                    try {
-                        FileWriter myWriter = new FileWriter("Alunos.csv",true);
-                    } catch (IOException e) {
-                        System.out.println("An error occurred.");
-                        e.printStackTrace();
-                    }
-                }
+        if (!f.exists()) {
+            try {
+                FileWriter myWriter = new FileWriter("Alunos.csv", true);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
     }
+
+
+    public String getIndex(Aluno al) {
+
+        List<Aluno> alunos = this.recuperarObjeto();
+        String aux = "0";
+        for (int i = 0; i < alunos.size(); i++) {
+            if (al.getNome().equals(alunos.get(i).getNome())) {
+                 aux = String.valueOf(i + 1);
+            }
+        }
+        return aux;
+    }
+
+
 
     public void salvarCsv() {
 
